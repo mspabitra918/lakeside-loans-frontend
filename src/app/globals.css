@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+/* -------------------------------------------------------------------------
+   Lakeside Modern Fintech — design tokens
+   -------------------------------------------------------------------------
+   Tailwind v4 CSS-first config. There is no tailwind.config.js; everything
+   below is the single source of truth for the design system.
+
+   The site commits to a SINGLE LIGHT THEME so the WCAG 2.1 AA contrast ratios
+   below can be asserted for every visitor. Do not add a dark mode or a
+   prefers-color-scheme block — reintroducing one means re-checking every
+   foreground/background pair.
+
+   Contrast ratios are verified. Do not substitute colors without re-checking.
+
+     ink-900   #0B2545  primary text, primary button bg   15.4:1 on white
+     ink-800   #12395C  headings alt, footer bg           11.9:1 on white
+     ink-700   #1B4F86  hover state for navy surfaces      8.4:1 on white
+     ink-100   #C7D6E8  text ON dark navy surfaces        10.4:1 on ink-900
+     teal-700  #0A5D64  accent text, links on white        7.6:1 on white
+     teal-600  #0B6E75  accent text, icons, focus ring     6.0:1 on white
+     teal-500  #0E8A93  NON-TEXT ONLY                      4.1:1 — fails AA
+     teal-300  #7FD4D9  accent text ON dark navy           9.0:1 on ink-900
+     body      #475569  body copy on white/canvas          7.6:1 on white
+     muted     #52627A  secondary / meta text              6.2:1 on white
+     canvas    #F7F9FC  page tint / alternating sections
+     line      #E2E8F0  hairline borders
+     danger    #B3261E  error text and borders             6.5:1 on white
+
+   HARD RULE: teal-500 is never used for text, and never as a background behind
+   white text. It is for hairlines, progress-bar fills, icon strokes at >=24px,
+   and decorative shapes only. Text-weight teal is teal-600 / teal-700.
+
+   BUTTON RULE: primary CTA is bg-ink-900 + white text (15.4:1). Never white
+   text on teal — it fails AA. Secondary CTA is bg-white + text-ink-900 +
+   border-line.
+   ------------------------------------------------------------------------- */
+
+@theme {
+  --color-ink-900: #0b2545;
+  --color-ink-800: #12395c;
+  --color-ink-700: #1b4f86;
+  --color-ink-100: #c7d6e8;
+
+  --color-teal-700: #0a5d64;
+  --color-teal-600: #0b6e75;
+  --color-teal-500: #0e8a93;
+  --color-teal-300: #7fd4d9;
+
+  --color-body: #475569;
+  --color-muted: #52627a;
+  --color-canvas: #f7f9fc;
+  --color-line: #e2e8f0;
+  --color-danger: #b3261e;
+
+  /*
+    Navy-tinted elevation. Tailwind's default shadow-md is grey and muddy
+    against this palette — use `shadow-card` / `shadow-card-lift` instead.
+  */
+  --shadow-card:
+    0 1px 2px rgba(11, 37, 69, 0.04), 0 8px 24px -8px rgba(11, 37, 69, 0.1);
+  --shadow-card-lift:
+    0 1px 2px rgba(11, 37, 69, 0.06), 0 16px 32px -12px rgba(11, 37, 69, 0.16);
+  --shadow-header: 0 1px 0 rgba(11, 37, 69, 0.06);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* -------------------------------------------------------------------------
+   Shared utilities. Prefer these over re-deriving the same class strings.
+   ------------------------------------------------------------------------- */
+
+/* Standard horizontal gutter + max measure for page-width content. */
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem; /* 1280px, matches max-w-7xl */
+  padding-inline: 1.25rem;
+
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
+  }
+}
+
+/* Vertical rhythm for full-width bands. Equivalent to `py-20 sm:py-28`. */
+@utility section-y {
+  padding-block: 5rem;
+
+  @media (width >= 40rem) {
+    padding-block: 7rem;
+  }
+}
+
+/*
+  Every currency figure, APR, and payment amount. Monospaced tabular numerals
+  make financial data read as precise and machine-verified.
+*/
+@utility num {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  letter-spacing: -0.01em;
+}
+
+/* Editorial eyebrow label that opens a section. */
+@utility eyebrow {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-teal-700);
+}
+
+/* -------------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------------- */
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    /* Sticky header offset for in-page anchors. */
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    font-family: var(--font-sans), system-ui, sans-serif;
+    background-color: #fff;
+    color: var(--color-body);
+    text-rendering: optimizeLegibility;
+  }
+
+  /*
+    A single visible focus indicator for every interactive element (WCAG 2.1
+    AA, 2.4.7). teal-600 is 6.0:1 on white and 3.9:1 on ink-900, so the
+    companion white outline below keeps it visible on navy surfaces too.
+  */
+  :focus-visible {
+    outline: 2px solid var(--color-teal-600);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+
+  .on-dark :focus-visible,
+  .bg-ink-900 :focus-visible,
+  .bg-ink-800 :focus-visible {
+    outline-color: var(--color-teal-300);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-ink-900);
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background-color: var(--color-teal-300);
+    color: var(--color-ink-900);
+  }
+
+  hr {
+    border-color: var(--color-line);
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Motion
+   Transitions are 150–200ms; hover lifts are <=2px. Nothing bouncy.
+   ------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

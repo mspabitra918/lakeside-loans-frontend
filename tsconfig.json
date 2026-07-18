@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "../y/ApplyForm.tsx", "../y/state.ts"  ],
   "exclude": ["node_modules"]
 }
