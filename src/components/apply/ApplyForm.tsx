@@ -117,6 +117,9 @@ export default function ApplyForm() {
 
       const application = await api.apply(payload);
 
+      document.cookie =
+        "applicationSubmitted=true; path=/; max-age=300; SameSite=Lax";
+
       // firstName comes from the form we just submitted — the API does not
       // echo PII back, by design.
       const query = new URLSearchParams({
