@@ -3,7 +3,12 @@ import Link from "next/link";
 import { PageShell } from "@/src/components/PageShell";
 import { ContactCard } from "@/src/components/ContactCard";
 import { COMPANY } from "@/src/lib/company";
-import { APR, MAX_LOAN_AMOUNT, MIN_LOAN_AMOUNT, usdWhole } from "@/src/lib/loan";
+import {
+  APR,
+  MAX_LOAN_AMOUNT,
+  MIN_LOAN_AMOUNT,
+  usdWhole,
+} from "@/src/lib/loan";
 import { ROUTES } from "@/src/lib/navigation";
 
 export const metadata: Metadata = {
@@ -25,31 +30,33 @@ export default function AboutPage() {
       title="About Lakeside Loans"
       intro={
         <p>
-          We believe accessing personal funding should be transparent, fast, and
-          fair — with the cost of borrowing stated plainly before you sign.
+          At Lakeside Loans, we believe that accessing personal funding should
+          be transparent, fast, and fair. Headquartered in Laguna Beach,
+          California, we have built a reputation as a trusted financial partner
+          for consumers nationwide.
         </p>
       }
     >
       <p>
         {COMPANY.name} is based in Laguna Beach, California. We offer fixed-rate
         personal loans from {usdWhole.format(MIN_LOAN_AMOUNT)} to{" "}
-        {usdWhole.format(MAX_LOAN_AMOUNT)} at a fixed{" "}
-        {(APR * 100).toFixed(2)}% APR on approved applications, and we aim to
-        treat every applicant with honesty and respect.
+        {usdWhole.format(MAX_LOAN_AMOUNT)} at a fixed {(APR * 100).toFixed(2)}%
+        APR on approved applications, and we aim to treat every applicant with
+        honesty and respect.
       </p>
 
       <h2>Our mission</h2>
 
       <p>
-        Provide straightforward personal loans without hidden fees or
-        unnecessary complexity. We aim to help qualified borrowers access
-        financing with transparent terms and responsive customer support
-        throughout the application process.
+        Provide straightforward personal loans without the hidden fees and
+        predatory rates that clutter the financial industry. We offer a fixed
+        10% APR to all our approved borrowers, ensuring you always know exactly
+        what you owe.
       </p>
 
-      <h2>How applying works</h2>
+      <h2>Award-Winning Service</h2>
 
-      <ol>
+      {/* <ol>
         <li>
           <strong>Tell us what you need.</strong> Choose your amount, term, and
           what the loan is for.
@@ -63,14 +70,14 @@ export default function AboutPage() {
           verification of your identity and income and on standard underwriting
           criteria.
         </li>
-      </ol>
+      </ol> */}
 
       <p>
-        Applying may result in a hard inquiry on your credit report, which could
-        affect your credit score. Submitting an application does not guarantee
-        approval and does not obligate you to accept a loan. If approved, your
-        specific rate, term, and monthly payment are disclosed in your loan
-        agreement before you sign.
+        We are incredibly proud to have been awarded as one of the{" "}
+        <strong>" Top 10 Lenders in California. "</strong> We are also a Better
+        Business Bureau (BBB) Verified Lender and an active member of the Online
+        Lenders Alliance (OLA), demonstrating our commitment to best practices
+        and consumer protection in online lending.
       </p>
 
       <p>
@@ -82,7 +89,7 @@ export default function AboutPage() {
 
       <h2>Contact our team</h2>
 
-      <ContactCard note="Please do not send account numbers, your Social Security number, or other sensitive information by email." />
+      <ContactCard />
     </PageShell>
   );
 }
