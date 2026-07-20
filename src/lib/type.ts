@@ -22,7 +22,7 @@ export interface Paginated<T> {
 }
 
 export interface AdminStats {
-  reference: number;
+  applications: number;
 }
 
 export interface LoanApplication {
