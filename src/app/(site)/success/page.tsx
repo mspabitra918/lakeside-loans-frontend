@@ -14,7 +14,7 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
   const { firstName, reference, status } = await searchParams;
 
   return (
-    <div className="mx-auto max-w-3xl rounded-2xl border border-green-200 bg-white p-8 shadow-sm">
+    <div className="mx-auto max-w-3xl rounded-2xl border border-green-200 bg-white p-8 shadow-sm mb-6">
       <div className="text-center">
         <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
           <svg

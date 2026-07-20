@@ -159,3 +159,28 @@ export const US_STATES = [
   ["WI", "Wisconsin"],
   ["WY", "Wyoming"],
 ] as const;
+
+export const formattedNumber = (value: string) => {
+  let digits = value.replace(/\D/g, "");
+
+  // Remove leading country code (1) if present
+  if (digits.length === 11 && digits.startsWith("1")) {
+    digits = digits.slice(1);
+  }
+
+  digits = digits.slice(0, 10);
+
+  if (digits.length > 6) {
+    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+  }
+
+  if (digits.length > 3) {
+    return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+  }
+
+  if (digits.length > 0) {
+    return `(${digits}`;
+  }
+
+  return "";
+};

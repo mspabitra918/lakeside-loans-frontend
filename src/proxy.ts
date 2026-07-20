@@ -4,9 +4,9 @@ export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Block /reviews
-  if (pathname === "/apply") {
-    return NextResponse.redirect(new URL("/", request.url));
-  }
+  // if (pathname === "/apply") {
+  //   return NextResponse.redirect(new URL("/", request.url));
+  // }
 
   // Protect /success
   const submitted = request.cookies.get("applicationSubmitted");
@@ -19,5 +19,9 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/success", "/apply"],
+  matcher: ["/success"],
 };
+
+// export const config = {
+//   matcher: ["/success", "/apply"],
+// };

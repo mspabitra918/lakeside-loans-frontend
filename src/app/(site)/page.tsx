@@ -11,7 +11,7 @@ import {
   ShieldCheck,
   Wallet,
 } from "lucide-react";
-import { COMPANY } from "../lib/company";
+import { COMPANY } from "../../lib/company";
 import {
   APR,
   LOAN_TERMS_MONTHS,
@@ -21,7 +21,7 @@ import {
   REPRESENTATIVE_EXAMPLES,
   usd,
   usdWhole,
-} from "../lib/loan";
+} from "../../lib/loan";
 
 export const metadata: Metadata = {
   title: "Personal Loans up to $25,000",
@@ -336,56 +336,10 @@ export default function Home() {
             confirmed in your loan agreement before you sign.
           </p>
 
-          <div className="mt-12 lg:gap-10">
-            {/* Detailed single example */}
-            {/* <div className="overflow-hidden rounded-2xl border border-line bg-white shadow-card">
-              <div className="border-b border-line px-6 py-5 sm:px-7">
-                <h3 className="text-lg font-semibold">
-                  Representative example
-                </h3>
-                <p className="mt-1 text-sm text-muted">
-                  <span className="num">{usdWhole.format(EX.principal)}</span>{" "}
-                  over <span className="num">{EX.termMonths}</span> months
-                </p>
-              </div>
-
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse text-left text-sm">
-                  <caption className="sr-only">
-                    Representative cost of a {usd.format(EX.principal)} loan
-                    over {EX.termMonths} months at a fixed {APR_LABEL} APR
-                  </caption>
-
-                  <tbody>
-                    {TILA_ROWS.map(({ label, value, mono }) => (
-                      <tr
-                        key={label}
-                        className="border-t border-line first:border-t-0 even:bg-canvas"
-                      >
-                        <th
-                          scope="row"
-                          className="w-1/2 px-6 py-4 font-medium text-body sm:px-7"
-                        >
-                          {label}
-                        </th>
-
-                        <td
-                          className={`px-6 py-4 font-semibold whitespace-nowrap text-ink-900 sm:px-7 ${
-                            mono ? "num" : ""
-                          }`}
-                        >
-                          {value}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div> */}
-
+          <div className="mt-12 lg:gap-10 ">
             {/* Spanning comparison */}
-            <div className="flex flex-col gap-6 w-fit">
-              <div className="overflow-hidden rounded-2xl border border-line bg-white shadow-card">
+            <div className="flex flex-col gap-6 overflow-auto max-w-ful ">
+              <div className="rounded-2xl border border-line bg-white shadow-card ">
                 <div className="border-b border-line px-6 py-5 sm:px-7">
                   <h3 className="text-lg font-semibold">
                     The same rate across the range
@@ -398,7 +352,7 @@ export default function Home() {
                 </div>
 
                 <div className="overflow-x-auto">
-                  <table className="max-w-full border-collapse text-left text-sm">
+                  <table className="min-w-[950px] w-full border-collapse text-left text-sm">
                     <caption className="sr-only">
                       Monthly payment, total of payments, and finance charge for
                       four representative loans at a fixed {APR_LABEL} APR

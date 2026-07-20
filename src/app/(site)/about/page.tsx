@@ -74,10 +74,10 @@ export default function AboutPage() {
 
       <p>
         We are incredibly proud to have been awarded as one of the{" "}
-        <strong>" Top 10 Lenders in California. "</strong> We are also a Better
-        Business Bureau (BBB) Verified Lender and an active member of the Online
-        Lenders Alliance (OLA), demonstrating our commitment to best practices
-        and consumer protection in online lending.
+        <strong>&quot; Top 10 Lenders in California. &quot;</strong> We are also
+        a Better Business Bureau (BBB) Verified Lender and an active member of
+        the Online Lenders Alliance (OLA), demonstrating our commitment to best
+        practices and consumer protection in online lending.
       </p>
 
       <p>

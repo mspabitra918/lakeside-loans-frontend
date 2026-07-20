@@ -7,22 +7,20 @@ export enum UserRole {
   USER = "user",
 }
 
-export const TOKEN_KEY = "elmo_loans_token";
-export const USER_KEY = "elmo_loans_user";
+export const TOKEN_KEY = "lakeside-loans_token";
+export const USER_KEY = "lakeside-loans_user";
 
-// Shape returned by POST /auth/login. The backend stores names split across
-// two columns, so callers that want a display name should use adminDisplayName.
+// Shape returned by POST /api/auth/login.
 export type AdminUser = {
   id: string;
-  first_name: string;
-  last_name: string;
+  full_name: string;
   email: string;
   role: UserRole;
 };
 
 export function adminDisplayName(user: AdminUser | null): string {
   if (!user) return "";
-  return [user.first_name, user.last_name].filter(Boolean).join(" ").trim();
+  return user.full_name?.trim() ?? "";
 }
 
 export function getToken(): string | null {
