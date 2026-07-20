@@ -91,7 +91,7 @@ export const api = {
   // Submit a new loan application. Returns the reference the applicant uses to
   // look the application up later.
   async apply(payload: ApplyFormValues): Promise<ApplyResponse> {
-    return request<ApplyResponse>("/api/loan-applications", {
+    return request<ApplyResponse>("/loan-applications", {
       method: "POST",
       body: JSON.stringify(payload),
     });
@@ -113,7 +113,7 @@ export const api = {
     const data = await request<{
       message: string;
       data: { token: string; user: AdminUser };
-    }>("/api/auth/login", {
+    }>("/auth/login", {
       method: "POST",
       body: JSON.stringify({ email, password }),
     });
@@ -121,7 +121,7 @@ export const api = {
   },
 
   async getStats(): Promise<AdminStats> {
-    return request<AdminStats>("/api/admin/stats");
+    return request<AdminStats>("/admin/stats");
   },
 
   async getApplications(
@@ -132,7 +132,7 @@ export const api = {
       total: number;
       page: number;
       limit: number;
-    }>(`/api/loan-applications/applications${buildQuery(params)}`);
+    }>(`/loan-applications/applications${buildQuery(params)}`);
     return {
       items: data.applications ?? [],
       total: data.total ?? 0,
@@ -143,7 +143,7 @@ export const api = {
 
   async getApplication(applicationId: string): Promise<LoanApplication> {
     const data = await request<{ loan: LoanApplication }>(
-      `/api/loan-applications/applications/${encodeURIComponent(applicationId)}/admin`,
+      `/loan-applications/applications/${encodeURIComponent(applicationId)}/admin`,
     );
     return data.loan;
   },
