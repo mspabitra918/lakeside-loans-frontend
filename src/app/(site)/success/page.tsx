@@ -97,7 +97,7 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
           href="tel:+18772312232"
           className="mt-6 flex items-center justify-center rounded-lg bg-green-600 px-6 py-4 text-lg font-semibold text-white transition hover:bg-green-700"
         >
-          📞 Call Us Immediately: (877) 231-2232
+          📞 Call Us Immediately: (747) 330-5650
         </a>
 
         <p className="mt-3 text-sm text-slate-600">
@@ -118,7 +118,7 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
 
         <div className="mt-5 rounded-lg bg-yellow-50 p-4">
           <p className="font-medium text-yellow-900">
-            📱 Please answer when you see <strong>(877) 231-2232</strong>{" "}
+            📱 Please answer when you see <strong>(747) 330-5650</strong>{" "}
             calling your phone.
           </p>
         </div>

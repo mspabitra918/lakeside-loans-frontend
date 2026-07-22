@@ -9,7 +9,7 @@
 
 export const COMPANY = {
   name: "Lakeside Loans",
-  phone: "(877) 231-2232",
+  phone: "(747) 330-5650",
   phoneHref: "tel:+18772312232",
   email: "support@lakesideloans.com",
   address: {
@@ -32,8 +32,10 @@ export const COMPANY_ADDRESS_LINE = `${COMPANY.address.street}, ${COMPANY.addres
 export const unverifiedClaims = [
   {
     id: "cfl-license",
-    claim: "Loans made or arranged pursuant to a California Financing Law license.",
-    needs: "CFL license number issued by the CA DFPI. Required to be displayed.",
+    claim:
+      "Loans made or arranged pursuant to a California Financing Law license.",
+    needs:
+      "CFL license number issued by the CA DFPI. Required to be displayed.",
     evidence: null,
   },
   {
