@@ -24,7 +24,7 @@ import {
 } from "../../lib/loan";
 
 export const metadata: Metadata = {
-  title: "Personal Loans up to $25,000",
+  title: "ZIPPY Cash | Personal Loans up to $25,000",
   description:
     "Personal loans up to $25,000 with a fixed 10.00% APR on approved loans. No origination fees, no prepayment penalties. Check your options in minutes.",
 };
