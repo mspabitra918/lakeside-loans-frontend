@@ -19,8 +19,20 @@ export const metadata: Metadata = {
     default: `${COMPANY.name} | Personal Loans`,
     template: `%s | ${COMPANY.name}`,
   },
+
   description:
     "ZIPPY Cash — company information, privacy policy, terms of use, state licensing, and accessibility statement.",
+
+  icons: {
+    icon: [
+      {
+        url: "/icon.png",
+        type: "image/png",
+      },
+    ],
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({
