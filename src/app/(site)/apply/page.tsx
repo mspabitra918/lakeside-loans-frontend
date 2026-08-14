@@ -6,7 +6,7 @@ import ApplyForm from "@/src/components/apply/ApplyForm";
 export const metadata: Metadata = {
   title: "Apply",
   description:
-    "Start your Lakeside Loans personal loan application. Submitting does not guarantee approval.",
+    "Start your ZIPPY Cash personal loan application. Submitting does not guarantee approval.",
 };
 
 export default function ApplyPage() {

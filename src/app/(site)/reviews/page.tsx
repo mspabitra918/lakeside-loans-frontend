@@ -7,7 +7,7 @@ import { TESTIMONIALS } from "@/src/lib/testimonials";
 
 export const metadata: Metadata = {
   title: "Reviews & Testimonials",
-  description: "Read customer feedback and testimonials about Lakeside Loans.",
+  description: "Read customer feedback and testimonials about ZIPPY Cash.",
 };
 
 /**
@@ -26,7 +26,7 @@ export default function ReviewsPage() {
       width="wide"
       intro={
         <p>
-          Feedback submitted by Lakeside Loans customers about their borrowing
+          Feedback submitted by ZIPPY Cash customers about their borrowing
           experience.
         </p>
       }

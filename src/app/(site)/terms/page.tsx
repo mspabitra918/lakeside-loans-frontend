@@ -5,7 +5,7 @@ import { COMPANY } from "@/src/lib/company";
 export const metadata: Metadata = {
   title: "Terms of Use",
   description:
-    "Review the Terms of Use governing your access to and use of the Lakeside Loans website and services.",
+    "Review the Terms of Use governing your access to and use of the ZIPPY Cash website and services.",
 };
 
 export default function TermsPage() {

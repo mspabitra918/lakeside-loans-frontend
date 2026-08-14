@@ -5,7 +5,7 @@ import { COMPANY } from "@/src/lib/company";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Learn how Lakeside Loans collects, uses, and protects your personal information.",
+    "Learn how ZIPPY Cash collects, uses, and protects your personal information.",
 };
 
 export default function PrivacyPage() {

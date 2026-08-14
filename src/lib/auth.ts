@@ -7,8 +7,9 @@ export enum UserRole {
   USER = "user",
 }
 
-export const TOKEN_KEY = "lakeside-loans_token";
-export const USER_KEY = "lakeside-loans_user";
+export const TOKEN_KEY = "zippycash_token";
+export const USER_KEY = "zippycash_user";
+export const AUTH_COOKIE_KEY = "zippycash_admin_auth";
 
 // Shape returned by POST /api/auth/login.
 export type AdminUser = {
@@ -57,4 +58,22 @@ export function clearAuth(): void {
 
 export function isAuthenticated(): boolean {
   return Boolean(getToken());
+}
+
+export function getAuthCookie(): string | null {
+  if (typeof window === "undefined") return null;
+  const match = document.cookie.match(
+    new RegExp(`(?:^|; )${AUTH_COOKIE_KEY}=([^;]*)`),
+  );
+  return match ? decodeURIComponent(match[1]) : null;
+}
+
+export function setAuthCookie(token: string): void {
+  if (typeof window === "undefined") return;
+  document.cookie = `${AUTH_COOKIE_KEY}=${encodeURIComponent(token)}; path=/; max-age=86400; SameSite=Lax`;
+}
+
+export function clearAuthCookie(): void {
+  if (typeof window === "undefined") return;
+  document.cookie = `${AUTH_COOKIE_KEY}=; path=/; max-age=0; SameSite=Lax`;
 }

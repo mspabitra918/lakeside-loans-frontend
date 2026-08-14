@@ -19,6 +19,46 @@ const headingClass =
 const contactLinkClass =
   "rounded font-medium text-white transition-colors duration-150 hover:text-teal-300 hover:underline underline-offset-4";
 
+export function RippleMark({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      className={className}
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle cx="16" cy="16" r="15" className="fill-black" />
+      <circle
+        cx="16"
+        cy="20"
+        r="4"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        className="text-teal-300"
+      />
+      <path
+        d="M4.5 20a11.5 11.5 0 0 1 23 0"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        className="text-teal-500"
+        opacity="0.75"
+      />
+      <path
+        d="M9 20a7 7 0 0 1 14 0"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        className="text-teal-300"
+        opacity="0.55"
+      />
+    </svg>
+  );
+}
+
 export function SiteFooter() {
   return (
     <footer className="mt-auto bg-ink-900 text-ink-100">
@@ -32,9 +72,16 @@ export function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-3 lg:gap-16">
           {/* Company */}
           <div className="md:col-span-1">
-            <h2 className="text-lg font-bold tracking-tight text-white">
-              {COMPANY.name}
-            </h2>
+            <Link
+              href="/"
+              className="group flex items-center gap-2.5 rounded-lg"
+              aria-label={`${COMPANY.name} — home`}
+            >
+              <RippleMark className="h-8 w-8 shrink-0 transition-transform duration-200 group-hover:-translate-y-0.5" />
+              <span className="text-lg font-bold tracking-tight text-white">
+                ZIPPY <span className="font-semibold text-white">Cash</span>
+              </span>
+            </Link>
 
             <address className="mt-4 space-y-2.5 text-sm not-italic leading-relaxed text-ink-100/75">
               <p>{COMPANY_ADDRESS_LINE}</p>
@@ -97,15 +144,14 @@ export function SiteFooter() {
         {/* Legal disclosures — content is load-bearing, do not trim. */}
         <div className="mt-14 space-y-4 border-t border-white/10 pt-8 text-xs leading-6 text-ink-100/80 md:max-w-full">
           <p>
-            Lakeside Loans offers personal loans up to $25,000 with a fixed
-            Annual Percentage Rate (APR) of 10.00%. Lakeside Loans charges zero
-            upfront fees, zero origination fees, and zero prepayment penalties.
-            Approval is subject to verification of identity, income, and
-            standard underwriting criteria. All credit profiles are welcome to
-            apply. Funds are typically deposited within 24 hours of final
-            approval. If you are approved for a loan, your specific term and
-            monthly payment will be clearly outlined in your loan agreement
-            prior to signing.
+            ZIPPY Cash offers personal loans up to $25,000 with a fixed Annual
+            Percentage Rate (APR) of 10.00%. ZIPPY Cash charges zero upfront
+            fees, zero origination fees, and zero prepayment penalties. Approval
+            is subject to verification of identity, income, and standard
+            underwriting criteria. All credit profiles are welcome to apply.
+            Funds are typically deposited within 24 hours of final approval. If
+            you are approved for a loan, your specific term and monthly payment
+            will be clearly outlined in your loan agreement prior to signing.
           </p>
 
           <p>

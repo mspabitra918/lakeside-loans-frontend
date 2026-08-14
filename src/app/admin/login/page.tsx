@@ -14,11 +14,27 @@ export default function AdminLoginPage() {
   const [password, setPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [checked, setChecked] = useState(false);
 
   // Someone already signed in has no business on the login screen.
   useEffect(() => {
-    if (isAuthenticated()) router.replace("/admin");
+    if (isAuthenticated()) {
+      router.replace("/admin");
+      return;
+    }
+    setChecked(true);
   }, [router]);
+
+  if (!checked) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-gray-100 px-5 py-12">
+        <div className="flex items-center gap-2 text-sm text-ink-700">
+          <Loader2 className="size-4 animate-spin" aria-hidden="true" />
+          Checking session…
+        </div>
+      </div>
+    );
+  }
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -63,7 +79,7 @@ export default function AdminLoginPage() {
           </div>
           <h1 className="text-2xl font-semibold text-ink-900">Admin sign in</h1>
           <p className="mt-1 text-sm text-ink-700">
-            Lakeside Loans internal portal
+            ZIPPY Cash internal portal
           </p>
         </div>
 
@@ -95,7 +111,7 @@ export default function AdminLoginPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="mb-4 w-full rounded-xl border border-gray-300 bg-white px-3.5 py-2.5 text-sm text-navy-900 outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20"
-            placeholder="admin@lakesideloans.ca"
+            placeholder="admin@zippycash.ca"
           />
 
           <label

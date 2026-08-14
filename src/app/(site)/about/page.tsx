@@ -14,7 +14,7 @@ import { ROUTES } from "@/src/lib/navigation";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn more about Lakeside Loans and our commitment to transparent, responsible lending.",
+    "Learn more about ZIPPY Cash and our commitment to transparent, responsible lending.",
 };
 
 /**
@@ -27,11 +27,11 @@ export default function AboutPage() {
   return (
     <PageShell
       eyebrow="About"
-      title="About Lakeside Loans"
+      title="About ZIPPY Cash"
       intro={
         <p>
-          At Lakeside Loans, we believe that accessing personal funding should
-          be transparent, fast, and fair. Headquartered in Laguna Beach,
+          At ZIPPY Cash, we believe that accessing personal funding should be
+          transparent, fast, and fair. Headquartered in Laguna Beach,
           California, we have built a reputation as a trusted financial partner
           for consumers nationwide.
         </p>

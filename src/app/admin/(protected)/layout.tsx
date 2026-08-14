@@ -59,7 +59,7 @@ export default function AdminLayout({
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-3 sm:px-8">
           <div className="flex items-center gap-6">
             <Link href="/admin" className="font-semibold text-navy-900">
-              Lakeside <span className="text-teal-700">Admin</span>
+              ZIPPY <span className="text-teal-700">Cash</span>
             </Link>
 
             <nav className="flex items-center gap-1">

@@ -242,7 +242,7 @@ export default function Home() {
           --------------------------------------------------------------- */}
       <section className="bg-canvas">
         <div className="container-page section-y">
-          <p className="eyebrow">Why Lakeside</p>
+          <p className="eyebrow">Why ZIPPY Cash</p>
 
           <h2 className="mt-4 max-w-[20ch] text-3xl font-bold tracking-tight sm:text-4xl">
             Borrowing made simple and transparent

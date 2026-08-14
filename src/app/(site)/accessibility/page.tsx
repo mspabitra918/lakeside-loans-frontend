@@ -5,7 +5,7 @@ import { COMPANY, COMPANY_ADDRESS_LINE } from "@/src/lib/company";
 export const metadata: Metadata = {
   title: "Accessibility Statement",
   description:
-    "Lakeside Loans is committed to ensuring digital accessibility for people with disabilities.",
+    "ZIPPY Cash is committed to ensuring digital accessibility for people with disabilities.",
 };
 
 export default function AccessibilityPage() {

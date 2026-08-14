@@ -233,10 +233,10 @@ export default function StepOne({ values, errors, onNext, onChange }: Props) {
             >
               By checking this box and clicking{" "}
               <strong>Continue to Step 2</strong>, you consent to receive
-              marketing, promotional and account-related SMS messages from
-              Lakeside Loans. Consent is not required to obtain a loan. Message
-              and data rates may apply. Reply STOP to opt out or HELP for
-              assistance. Read our{" "}
+              marketing, promotional and account-related SMS messages from ZIPPY
+              Cash. Consent is not required to obtain a loan. Message and data
+              rates may apply. Reply STOP to opt out or HELP for assistance.
+              Read our{" "}
               <Link
                 href="/privacy"
                 target="_blank"

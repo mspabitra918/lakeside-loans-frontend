@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: `%s | ${COMPANY.name}`,
   },
   description:
-    "Lakeside Loans — company information, privacy policy, terms of use, state licensing, and accessibility statement.",
+    "ZIPPY Cash — company information, privacy policy, terms of use, state licensing, and accessibility statement.",
 };
 
 export default function RootLayout({

@@ -8,10 +8,10 @@
  */
 
 export const COMPANY = {
-  name: "Lakeside Loans",
+  name: "ZIPPY Cash",
   phone: "(747) 330-5650",
   phoneHref: "tel:+18772312232",
-  email: "support@lakesideloans.com",
+  email: "support@zippycash.com",
   address: {
     street: "1968 South Coast Highway #0190",
     city: "Laguna Beach",

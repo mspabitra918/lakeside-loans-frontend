@@ -4,7 +4,7 @@ import { COMPANY } from "@/src/lib/company";
 
 export const metadata: Metadata = {
   title: "State Licenses",
-  description: "State licensing and lending disclosures for Lakeside Loans.",
+  description: "State licensing and lending disclosures for ZIPPY Cash.",
 };
 
 export default function LicensesPage() {

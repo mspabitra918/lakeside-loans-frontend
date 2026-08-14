@@ -11,10 +11,10 @@ const FOCUSABLE =
   'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 /**
- * Concentric "lakeside ripple" mark. Decorative — the wordmark carries the
+ * Concentric "zippycash ripple" mark. Decorative — the wordmark carries the
  * accessible name, so this is aria-hidden.
  */
-function RippleMark({ className }: { className?: string }) {
+export function RippleMark({ className }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 32 32"
@@ -131,7 +131,7 @@ export default function Navbar() {
         >
           <RippleMark className="h-8 w-8 shrink-0 transition-transform duration-200 group-hover:-translate-y-0.5" />
           <span className="text-lg font-bold tracking-tight text-ink-900">
-            Lakeside <span className="font-semibold text-teal-700">Loans</span>
+            ZIPPY <span className="font-semibold text-teal-700">Cash</span>
           </span>
         </Link>
 
