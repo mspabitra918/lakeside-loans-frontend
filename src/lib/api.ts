@@ -2,7 +2,8 @@ import { ApplyFormValues } from "../components/apply/types";
 import { AdminUser, getToken } from "./auth";
 import { AdminStats, LoanApplication, Paginated } from "./type";
 
-export const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
+export const API_BASE =
+  process.env.NEXT_PUBLIC_API_BASE_URL ?? "https://api.zippycash.online";
 
 // export const API_BASE =
 // process.env.NEXT_PUBLIC_API_BASE_URL ??
