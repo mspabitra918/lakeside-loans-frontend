@@ -43,7 +43,7 @@ export function formatUSD(amount: number): string {
   }).format(amount);
 }
 
-// Tel-href safe version of a display phone number ("(747) 330-5650" -> "+17473305650").
+// Tel-href safe version of a display phone number ("(747) 202-9713" -> "+17472029713").
 export function telHref(phone: string): string {
   const digits = phone.replace(/\D/g, "");
   return `tel:+1${digits.replace(/^1/, "")}`;

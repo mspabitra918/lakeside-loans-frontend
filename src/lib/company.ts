@@ -9,19 +9,19 @@
 
 export const COMPANY = {
   name: "ZIPPY Cash",
-  phone: "(747) 330-5650",
-  phoneHref: "tel:+18772312232",
-  email: "support@zippycash.com",
+  phone: "(747) 202-9713",
+  phoneHref: "tel:+‪17472029713",
+  email: " info@zippycash.online",
   address: {
-    street: "1968 South Coast Highway #0190",
-    city: "Laguna Beach",
+    street: "3101 Ocean Park Blvd #140",
+    city: "Santa Monica",
     region: "CA",
-    postalCode: "92651",
-    country: "US",
+    postalCode: "90405",
+    country: "United States",
   },
 } as const;
 
-export const COMPANY_ADDRESS_LINE = `${COMPANY.address.street}, ${COMPANY.address.city}, ${COMPANY.address.region} ${COMPANY.address.postalCode}`;
+export const COMPANY_ADDRESS_LINE = `${COMPANY.address.street}, ${COMPANY.address.city}, ${COMPANY.address.region} ${COMPANY.address.postalCode}, ${COMPANY.address.country}`;
 
 /**
  * Claims from the original content spec that cannot be published as-is.
