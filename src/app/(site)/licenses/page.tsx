@@ -19,7 +19,7 @@ export default function LicensesPage() {
           </p>
         </section>
 
-        <section className="space-y-4">
+        {/* <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-slate-900">
             California Residents
           </h2>
@@ -35,7 +35,7 @@ export default function LicensesPage() {
               entity. Remove this notice once the information has been verified.
             </p>
           </div>
-        </section>
+        </section> */}
 
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-slate-900">
