@@ -10,24 +10,42 @@ import { formattedNumber } from "@/src/lib/loan";
 import { useDebounced } from "@/src/lib/useDebounced";
 import { LoanApplication } from "@/src/lib/type";
 
-function formatDate(value?: string) {
+const ADMIN_TIMEZONE = "America/Los_Angeles";
+
+export function formatDate(value?: string) {
   if (!value) return "—";
+
   const date = new Date(value);
-  return Number.isNaN(date.getTime())
-    ? "—"
-    : date.toLocaleDateString(undefined, {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      });
+
+  if (Number.isNaN(date.getTime())) {
+    return "—";
+  }
+
+  return new Intl.DateTimeFormat("en-US", {
+    timeZone: ADMIN_TIMEZONE,
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+    // timeZoneName: "short",
+  }).format(date);
 }
-// Local (not UTC) YYYY-MM-DD for "today".
+
 function todayStr(): string {
-  const d = new Date();
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  return `${y}-${m}-${day}`;
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: ADMIN_TIMEZONE,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(new Date());
+
+  const year = parts.find((p) => p.type === "year")?.value;
+  const month = parts.find((p) => p.type === "month")?.value;
+  const day = parts.find((p) => p.type === "day")?.value;
+
+  return `${year}-${month}-${day}`;
 }
 
 export default function AdminApplicationsPage() {
@@ -42,7 +60,7 @@ export default function AdminApplicationsPage() {
   const [error, setError] = useState<string | null>(null);
 
   const [filterDate, setFilterDate] = useState(
-    searchParams.get("date") || new Date().toISOString().split("T")[0],
+    searchParams.get("date") || todayStr(),
   );
   const [searchInput, setSearchInput] = useState(
     searchParams.get("search")?.trim() || "",
@@ -119,7 +137,7 @@ export default function AdminApplicationsPage() {
     setIsResetting(true);
     setPage(1);
     setSearchInput("");
-    setFilterDate(new Date().toISOString().split("T")[0]);
+    setFilterDate(todayStr());
 
     // Clear rotation after a delay
     setTimeout(() => {
@@ -153,10 +171,10 @@ export default function AdminApplicationsPage() {
           }}
           className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary outline-none"
         />
-        {filterDate !== new Date().toISOString().split("T")[0] && (
+        {filterDate !== todayStr() && (
           <button
             onClick={() => {
-              setFilterDate(new Date().toISOString().split("T")[0]);
+              setFilterDate(todayStr());
               setPage(1);
             }}
             className="text-xs text-primary hover:underline cursor-pointer"

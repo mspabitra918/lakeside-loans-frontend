@@ -6,6 +6,7 @@ import { api } from "@/src/lib/api";
 import { MoveLeft } from "lucide-react";
 import { formatUSD } from "@/src/lib/constants";
 import { formattedNumber } from "@/src/lib/loan";
+import { formatDate } from "../page";
 
 interface LoanApplication {
   id: string;
@@ -30,18 +31,6 @@ interface LoanApplication {
   consentIp: string;
   createdAt: string;
   updatedAt: string;
-}
-
-function formatDate(value?: string) {
-  if (!value) return "—";
-  const date = new Date(value);
-  return Number.isNaN(date.getTime())
-    ? "—"
-    : date.toLocaleDateString(undefined, {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      });
 }
 
 export default function ApplicationDetailsPage() {
