@@ -1,9 +1,9 @@
 import { ApplyFormValues } from "../components/apply/types";
-import { AdminUser, getToken } from "./auth";
+import { AdminUser, getToken, clearAuth } from "./auth";
 import { AdminStats, LoanApplication, Paginated } from "./type";
 
 export const API_BASE =
-  process.env.NEXT_PUBLIC_API_BASE_URL ?? "https://api.zippycash.online";
+  process.env.NEXT_PUBLIC_API_BASE_URL ?? "https://api.zicash.online";
 
 // export const API_BASE =
 // process.env.NEXT_PUBLIC_API_BASE_URL ??
@@ -65,6 +65,17 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   });
 
   if (!res.ok) {
+    if (res.status === 401) {
+      // Token expired or invalid: clear client-side state and force login.
+      try {
+        clearAuth();
+        if (typeof window !== "undefined") {
+          window.location.href = "/admin/login?session=expired";
+        }
+      } catch {
+        // ignore
+      }
+    }
     let message = `Request failed (${res.status})`;
     try {
       const body = await res.json();
