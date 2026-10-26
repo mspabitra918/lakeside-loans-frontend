@@ -29,7 +29,7 @@ export function formatDate(value?: string) {
     hour: "numeric",
     minute: "2-digit",
     hour12: true,
-    // timeZoneName: "short",
+    timeZoneName: "short",
   }).format(date);
 }
 

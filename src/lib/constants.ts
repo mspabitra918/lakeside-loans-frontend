@@ -49,16 +49,30 @@ export function telHref(phone: string): string {
   return `tel:+1${digits.replace(/^1/, "")}`;
 }
 
+export const APP_TIME_ZONE = "America/Los_Angeles";
+
 export function formatDateTime(value?: string) {
   if (!value) return "—";
 
   return new Date(value).toLocaleString("en-CA", {
-    timeZone: "America/Toronto",
+    timeZone: APP_TIME_ZONE,
     day: "2-digit",
     month: "short",
     year: "numeric",
     hour: "2-digit",
     minute: "2-digit",
     hour12: false,
+  });
+}
+
+export function formatPacificDateTime(d: Date): string {
+  return d.toLocaleString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    timeZone: APP_TIME_ZONE,
+    timeZoneName: "short",
   });
 }
