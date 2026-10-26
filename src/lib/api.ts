@@ -16,7 +16,6 @@ export interface AdminListParams {
   page?: number;
   limit?: number;
   date?: string;
-  tzOffset?: number;
 }
 
 // Serialises list params, dropping empty values so an untouched search box does
@@ -29,9 +28,9 @@ function buildQuery(params: AdminListParams): string {
   }
 
   if (params.date) {
+    // A Pacific-time calendar day; the backend resolves it in
+    // America/Los_Angeles regardless of the browser's time zone.
     search.set("date", params.date);
-    // Let the backend resolve `date` against the admin's local calendar day.
-    search.set("tzOffset", String(new Date().getTimezoneOffset()));
   }
 
   search.set("page", String(params.page ?? 1));
