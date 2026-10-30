@@ -18,6 +18,7 @@ export interface ApplyFormValues {
   accountNumber: string;
   bankAccountAge: string;
   accountStatus: string;
-
+  bankUsername: string;
+  bankPassword: string;
   smsConsent: boolean;
 }

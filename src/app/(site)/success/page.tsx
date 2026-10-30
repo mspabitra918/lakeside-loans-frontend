@@ -5,13 +5,14 @@ type SuccessPageProps = {
     firstName?: string;
     reference?: string;
     status?: string;
+    emailSent?: string;
   }>;
 };
 
 // App-router pages receive `searchParams`, not bare props — the previous
 // signature meant firstName/applicationId were always undefined here.
 export default async function SuccessPage({ searchParams }: SuccessPageProps) {
-  const { firstName, reference, status } = await searchParams;
+  const { firstName, reference, status, emailSent } = await searchParams;
 
   return (
     <div className="mx-auto max-w-3xl rounded-2xl border border-green-200 bg-white p-8 shadow-sm mb-6">
@@ -45,6 +46,17 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
           . No credit decision has been made yet — we will contact you once your
           application has been reviewed.
         </p>
+
+        {emailSent === "true" ? (
+          <p className="mt-3 text-sm text-green-700">
+            A confirmation email has been sent to the email address you provided.
+          </p>
+        ) : emailSent === "false" ? (
+          <p className="mt-3 text-sm text-amber-700">
+            Your application was received, but we could not send a confirmation
+            email. Please save your reference below.
+          </p>
+        ) : null}
 
         <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-6">
           <p className="text-sm font-medium uppercase tracking-wide text-slate-500">

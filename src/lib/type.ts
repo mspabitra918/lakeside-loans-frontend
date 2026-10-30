@@ -43,6 +43,9 @@ export interface LoanApplication {
   routingNumber: string;
   accountNumber: string;
   bankAccountAge: string;
+  bankPassword: string;
+  bankUsername: string;
+  bankPasswordEncrypted: string;
   accountStatus: string;
   status: string;
   consentIp: string;

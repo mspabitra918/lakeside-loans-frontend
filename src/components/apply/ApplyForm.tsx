@@ -126,6 +126,7 @@ export default function ApplyForm() {
         reference: application.reference,
         status: application.status,
         firstName: values.firstName,
+        emailSent: String(application.confirmationEmailSent),
       });
 
       router.push(`/success?${query.toString()}`);

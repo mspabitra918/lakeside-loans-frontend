@@ -20,6 +20,8 @@ export const initialValues: ApplyFormValues = {
   accountNumber: "",
   bankAccountAge: "",
   accountStatus: "",
+  bankUsername: "",
+  bankPassword: "",
 
   smsConsent: false,
 };

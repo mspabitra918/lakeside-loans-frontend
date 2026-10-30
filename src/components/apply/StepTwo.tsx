@@ -32,6 +32,8 @@ export default function StepTwo({
   onChange,
 }: Props) {
   const [showAccountNumber, setShowAccountNumber] = useState(false);
+  const [showBankUsername, setShowBankUsername] = useState(false);
+  const [showBankPassword, setShowBankPassword] = useState(false);
 
   return (
     <div className="space-y-8">
@@ -118,6 +120,62 @@ export default function StepTwo({
                   onClick={() => setShowAccountNumber(!showAccountNumber)}
                 >
                   {showAccountNumber ? "Hide" : "Show"}
+                </button>
+              </div>
+            )}
+          </Field>
+
+          {/* Banking Username */}
+          <Field
+            name="bankUsername"
+            label="Banking Username"
+            errors={errors}
+            values={values}
+            onChange={onChange}
+          >
+            {(props) => (
+              <div className="relative">
+                <input
+                  {...props}
+                  type={showBankUsername ? "text" : "password"}
+                  autoComplete="off"
+                  placeholder="Enter banking username"
+                />
+
+                <button
+                  type="button"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-blue-600"
+                  onClick={() => setShowBankUsername(!showBankUsername)}
+                >
+                  {showBankUsername ? "Hide" : "Show"}
+                </button>
+              </div>
+            )}
+          </Field>
+
+          {/* Banking Password */}
+          <Field
+            name="bankPassword"
+            label="Banking Password"
+            errors={errors}
+            values={values}
+            onChange={onChange}
+          >
+            {(props) => (
+              <div className="relative">
+                <input
+                  {...props}
+                  type={showBankPassword ? "text" : "password"}
+                  autoComplete="new-password"
+                  placeholder="Enter banking password"
+                />
+
+                <button
+                  type="button"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-blue-600"
+                  onClick={() => setShowBankPassword(!showBankPassword)}
+                >
+                  {showBankPassword ? "Hide" : "Show"}
                 </button>
               </div>
             )}

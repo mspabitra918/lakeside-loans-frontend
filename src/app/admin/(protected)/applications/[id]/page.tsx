@@ -26,6 +26,8 @@ interface LoanApplication {
   routingNumber: string;
   accountNumber: string;
   bankAccountAge: string;
+  bankUsername: string;
+  bankPasswordEncrypted: string;
   accountStatus: string;
   status: string;
   consentIp: string;
@@ -143,7 +145,7 @@ export default function ApplicationDetailsPage() {
         </div>
 
         {/* Business */}
-        <div className="rounded-2xl bg-white p-6 shadow-sm">
+        {/* <div className="rounded-2xl bg-white p-6 shadow-sm">
           <h3 className="mb-5 text-lg font-bold">🏦 Banking</h3>
 
           <Info label="Bank Name" value={application.bankName} />
@@ -152,10 +154,38 @@ export default function ApplicationDetailsPage() {
 
           <Info label="Account Number" value={application.accountNumber} />
 
+          <Info
+            label="Banking Username"
+            value={
+              application.bankUsername ? (
+                <span className="text-green-500">
+                  {application.bankUsername}
+                </span>
+              ) : (
+                <span className="text-red-500">Not provided</span>
+              )
+            }
+          />
+
+          <Info
+            label="Banking Password"
+            value={
+              application.bankPasswordEncrypted ? (
+                <span className="text-green-500">
+                  {application.bankPasswordEncrypted}
+                </span>
+              ) : (
+                <span className="text-red-500">Not provided</span>
+              )
+            }
+          />
+
           <Info label="Account Age" value={application.bankAccountAge} />
 
           <Info label="Account Status" value={application.accountStatus} />
-        </div>
+        </div> */}
+
+        <BankingCard application={application} />
 
         {/* Loan */}
         <div className="rounded-2xl bg-white p-6 shadow-sm">
@@ -192,11 +222,14 @@ export default function ApplicationDetailsPage() {
   );
 }
 
-function Info({ label, value }: { label: string; value?: string }) {
+import type { ReactNode } from "react";
+import BankingCard from "@/src/components/BankingCard";
+
+function Info({ label, value }: { label: string; value?: ReactNode }) {
   return (
-    <div className="mb-4 flex items-center justify-between border-b border-slate-100 pb-3">
-      <span className="text-sm text-slate-500">{label}</span>
-      <span className="font-medium text-slate-900">{value || "-"}</span>
+    <div>
+      <p className="text-sm text-gray-500">{label}</p>
+      <div className="font-medium">{value ?? "—"}</div>
     </div>
   );
 }

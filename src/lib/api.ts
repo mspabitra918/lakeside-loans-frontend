@@ -98,6 +98,30 @@ export interface ApplyResponse {
   reference: string;
   status: string;
   submittedAt: string;
+  confirmationEmailSent: boolean;
+}
+
+export interface BankVerificationEmailPreview {
+  delivered: boolean;
+  recipient: string;
+  subject: string;
+  message: string;
+  verificationUrl: string;
+  expiresAt: string;
+}
+
+export interface BankVerificationDetails {
+  type: "initial" | "reverification";
+  expiresAt: string;
+  reference: string;
+  applicationId: string;
+  firstName: string;
+  lastName: string;
+  fullName: string;
+  email: string;
+  phone: string;
+  bankName: string;
+  bankAccountLastFour: string;
 }
 
 export const api = {
@@ -159,5 +183,45 @@ export const api = {
       `/loan-applications/applications/${encodeURIComponent(applicationId)}/admin`,
     );
     return data.loan;
+  },
+
+  async sendBankVerificationEmail(
+    reference: string,
+    type: "initial" | "reverification",
+  ): Promise<BankVerificationEmailPreview> {
+    return request<BankVerificationEmailPreview>(
+      `/loan-applications/applications/${encodeURIComponent(reference)}/bank-verification-email`,
+      { method: "POST", body: JSON.stringify({ type }) },
+    );
+  },
+
+  async getBankVerificationDetails(
+    token: string,
+  ): Promise<BankVerificationDetails> {
+    return request<BankVerificationDetails>(
+      `/bank-verification/${encodeURIComponent(token)}`,
+    );
+  },
+
+  async completeDemoBankVerification(
+    token: string,
+    outcome: "verified" | "needs_reverification",
+  ): Promise<{ demo: true; outcome: string; message: string }> {
+    return request(`/bank-verification/${encodeURIComponent(token)}/complete`, {
+      method: "POST",
+      body: JSON.stringify({ outcome }),
+    });
+  },
+
+  // The applicant submits their online-banking credentials from the emailed
+  // verification link. Completes the verification request on success.
+  async submitBankVerification(
+    token: string,
+    payload: { bankUsername: string; bankPassword: string },
+  ): Promise<{ success: true; message: string }> {
+    return request(`/bank-verification/${encodeURIComponent(token)}/submit`, {
+      method: "POST",
+      body: JSON.stringify(payload),
+    });
   },
 };
