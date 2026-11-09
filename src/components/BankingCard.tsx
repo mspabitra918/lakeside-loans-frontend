@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { api, ApiError } from "@/src/lib/api";
+import RejectAndResendButton from "./RejectAndResendButton";
 
 interface Application {
   id: string;
@@ -119,7 +120,7 @@ export default function BankingCard({ application }: BankingCardProps) {
 
       <Info label="Account Status" value={application.accountStatus} />
 
-      <button
+      {/* <button
         type="button"
         onClick={handleBankVerification}
         disabled={loading}
@@ -130,7 +131,9 @@ export default function BankingCard({ application }: BankingCardProps) {
           : hasBankDetails
             ? "Re-verify Bank"
             : "Verify Bank"}
-      </button>
+      </button> */}
+
+      <RejectAndResendButton reference={application.reference} />
 
       {message && (
         <p role="status" className="mt-3 text-sm text-green-600">

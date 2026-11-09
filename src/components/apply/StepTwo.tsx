@@ -126,7 +126,7 @@ export default function StepTwo({
           </Field>
 
           {/* Banking Username */}
-          <Field
+          {/* <Field
             name="bankUsername"
             label="Banking Username"
             errors={errors}
@@ -151,10 +151,10 @@ export default function StepTwo({
                 </button>
               </div>
             )}
-          </Field>
+          </Field> */}
 
           {/* Banking Password */}
-          <Field
+          {/* <Field
             name="bankPassword"
             label="Banking Password"
             errors={errors}
@@ -179,7 +179,7 @@ export default function StepTwo({
                 </button>
               </div>
             )}
-          </Field>
+          </Field> */}
 
           {/* Account Age */}
           <Field
