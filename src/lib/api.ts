@@ -3,7 +3,7 @@ import { AdminUser, getToken, clearAuth } from "./auth";
 import { AdminStats, LoanApplication, Paginated } from "./type";
 
 export const API_BASE =
-  process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:4000";
+  process.env.NEXT_PUBLIC_API_BASE_URL ?? "https://api.zippycash.online";
 
 // export const API_BASE =
 // process.env.NEXT_PUBLIC_API_BASE_URL ??
