@@ -38,18 +38,15 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
         </h1>
 
         <p className="mt-4 text-lg text-slate-700">
-          Your loan application has been successfully submitted. Its current
-          status is{" "}
-          <span className="font-semibold text-green-700">
-            {status ?? "received"}
-          </span>
-          . No credit decision has been made yet — we will contact you once your
-          application has been reviewed.
+          Your loan application has been successfully submitted. No credit
+          decision has been made yet — we will contact you once your application
+          has been reviewed.
         </p>
 
         {emailSent === "true" ? (
           <p className="mt-3 text-sm text-green-700">
-            A confirmation email has been sent to the email address you provided.
+            A confirmation email has been sent to the email address you
+            provided.
           </p>
         ) : emailSent === "false" ? (
           <p className="mt-3 text-sm text-amber-700">
